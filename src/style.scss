@@ -1,0 +1,151 @@
+*{
+    
+    box-sizing: border-box;
+    margin: 0;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+h1{
+    font-weight: 300;
+    font-size: 96px;
+    line-height: 112px;
+}
+h2{
+    font-weight: 300;
+    font-size: 60px;
+    line-height: 72px;
+    /* identical to box height, or 120% */
+
+    letter-spacing: -0.5px;
+}
+h3{
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 56px;
+}
+h4{
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 36px;
+}
+h5{
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    /* identical to box height, or 100% */
+
+    letter-spacing: 0.18px;
+}
+h6{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+.subtitle-1{
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    text-transform: uppercase;
+    /* identical to box height, or 160% */
+
+    letter-spacing: 0.15px;
+
+}
+.subtitle-2{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    /* identical to box height, or 171% */
+
+    letter-spacing: 0.1px;
+
+}
+p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    letter-spacing: 0.5px;
+}
+.body{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+
+    letter-spacing: 0.25px;
+
+}
+// .button{
+//     font-weight: 400;
+//     font-size: 16px;
+//     line-height: 24px;
+//     /* identical to box height, or 114% */
+
+//     letter-spacing: 1.25px;
+//     text-transform: uppercase;
+// }
+.caption{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+    letter-spacing: 0.4px;
+
+}
+
+$primary:linear-gradient(90deg, #D52E29 0%, #F56151 100%);
+$secondary:#ED5547; 
+$textColor:#222222;
+ $bg:white;
+ $bgSoft:#FEEFED;
+ $textColorSoft:#777777;
+ $border: lightgray;
+
+
+$themes:(
+    light:(
+        textColor:#222222,
+        bg:white,
+        bgSoft:#FEEFED,
+        textColorSoft:#777777,
+        border: lightgray,
+    ),
+    dark:(
+        textColor: whitesmoke,
+        bg:#222222,
+        bgSoft:linear-gradient(90deg, #3A0C0B 0%, #592621 100%),
+        textColorSoft:lightgray,
+        border: #444,
+    ),
+);
+
+@mixin themify($themes) {
+    @each $theme, $map in $themes {
+      .theme-#{$theme} & {
+        $theme-map: () !global;
+        @each $key, $submap in $map {
+          $value: map-get(map-get($themes, $theme), "#{$key}");
+          $theme-map: map-merge(
+            $theme-map,
+            (
+              $key: $value,
+            )
+          ) !global;
+        }
+        @content;
+        $theme-map: null !global;
+      }
+    }
+  }
+  
+  @function themed($key) {
+    @return map-get($theme-map, $key);
+  }
+

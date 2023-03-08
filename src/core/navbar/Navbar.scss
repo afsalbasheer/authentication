@@ -1,0 +1,126 @@
+@import "../../style.scss";
+
+.navbar{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $bg;
+    padding: 0px 12px;
+    border-bottom: 1px solid $border;
+    position: sticky;
+    left:0;
+    top: 0;
+   
+    .left{
+        display: flex;
+        align-items: center;
+        gap:60px;
+
+        .nav-links{
+            display: flex;
+            align-items: center;
+            
+            ul{
+                list-style-type: none;
+                display: flex;
+                align-items: center;
+                gap: 36px;
+                text-decoration: none;
+                
+
+                li{
+                    position: relative;
+           
+                    .link{
+                        display: flex;
+                        display: inline-block;  
+                        text-decoration: none;
+                        color: $textColor;
+                        transition: 300ms;
+                        height: 82px;
+
+                    }
+                    .subtitle-1{
+                        line-height: 82px;
+                    }
+                    .line{
+                        width: 100%;
+                        height: 3px;
+                        background-color: $secondary;
+                        position: absolute;
+                        bottom: 0;
+                        display: none;
+                        
+                    }
+                }
+                li:hover {
+                    .link{
+                        color: $secondary;
+                    }
+                    .line{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    .right{
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        color:$primary;
+
+        .link{
+            text-decoration: none;  
+            color: $textColor;
+        }
+        
+
+        .button{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+
+            .sc-btn{
+                padding: 6px 8px;
+                border: 1px solid $secondary;
+                border-radius: 8px;
+                color: $secondary;
+                color:$primary;
+                width: 87px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .pr-btn{
+                padding: 6px 8px;
+                color: $bg;
+                background: $primary;
+                border-radius: 8px;
+             
+                width: 149px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+        }
+        .button:hover{
+            color: $primary;
+        }
+
+        .list{
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+    }
+}
+
+  
+       
+   
